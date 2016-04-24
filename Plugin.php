@@ -23,4 +23,28 @@ class Plugin extends PluginBase {
         ];
     }
 
+
+    public function registerMarkupTags() {
+        return [
+            'filters' => [
+                'highlight' => [$this, 'highlight'],
+            ],
+        ];
+    }
+
+
+    public function highlight($text, $highlight) {
+        if (!$highlight) {
+            return $text;
+        }
+
+        if (!is_array($highlight)) {
+            $highlight = [$highlight];
+        }
+
+        return ($highlighted = preg_filter('/' . preg_quote(implode(',', $highlight)) . '(?![^<]*>)/i', '<mark>$0</mark>', $text))
+            ? $highlighted
+            : $text;
+    }
+
 }
