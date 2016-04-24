@@ -6,7 +6,7 @@ use System\Classes\PluginBase;
 /**
  * Search Plugin Information File
  */
-class Search extends PluginBase {
+class Plugin extends PluginBase {
 
     /**
      * Returns information about this plugin.
@@ -20,22 +20,6 @@ class Search extends PluginBase {
             'author'      => 'Antti Qvickström',
             'icon'        => 'icon-search',
             'homepage'    => 'https://github.com/anqqa/oc-search-plugin',
-        ];
-    }
-
-    /**
-     * Registers any front-end components implemented in this plugin.
-     *
-     * @return  array
-     */
-    public function registerComponents() {
-        return [
-        ];
-    }
-
-
-    public function registerSettings() {
-        return [
         ];
     }
 
